@@ -1,43 +1,85 @@
-PantrySync
+📱 Rancangan Aplikasi: Moru
 Deskripsi Aplikasi
-PantrySync adalah aplikasi mobile berbasis Flutter yang dirancang untuk membantu pengguna mengelola stok bahan makanan agar tidak terbuang karena kedaluwarsa. Aplikasi ini memungkinkan pengguna untuk mencatat bahan makanan, memantau masa berlaku, memperoleh rekomendasi resep berdasarkan bahan yang tersedia, serta membuat daftar belanja dengan lebih praktis. Dengan tampilan yang sederhana dan mudah digunakan, aplikasi ini juga didesain agar siap dikembangkan dengan fitur AI di masa mendatang.
 
-- Arsitektur Database (Supabase / PostgreSQL)
-Aplikasi menggunakan Supabase (PostgreSQL) sebagai database untuk menyimpan data secara online sehingga data pengguna dapat tersinkronisasi antar perangkat.
+Moru adalah aplikasi mobile berbasis Flutter yang membantu pelaku UMKM mengelola keuangan bisnis dengan lebih mudah. Aplikasi memungkinkan pengguna mencatat pemasukan dan pengeluaran, memantau kondisi keuangan melalui dashboard interaktif, memperoleh rekomendasi harga jual berdasarkan biaya produksi dan target keuntungan, serta menerima insight keuangan sederhana berdasarkan aktivitas bisnis.
 
-1. Tabel pantry_items (Menyimpan data bahan makanan pengguna ):
-id (UUID / Primary Key) 
-user_id (UUID / Foreign Key terhubung ke sistem autentikasi) 
-name (String) 
-category (String) 
-quantity (Integer/Double) 
-unit (String/Varchar, misal: "kg", "pcs", "liter") 
-expiration_date (Date) 
-is_notified (Boolean, default: false) 
-created_at (Timestamp) 
+Moru dirancang untuk pengguna yang belum memiliki pengetahuan akuntansi, sehingga seluruh informasi disajikan dalam bentuk visual yang sederhana dan mudah dipahami.
 
-2. Tabel shopping_list (Menyimpan daftar belanja pengguna ):
-id (UUID / Primary Key) 
-user_id (UUID / Foreign Key) 
-item_name (String) 
-quantity (Integer/Double) 
-unit (String/Varchar) 
-is_purchased (Boolean) 
-created_at (Timestamp) 
+🎯 Target Pengguna
+UMKM
+Online Shop
+Penjual makanan
+Home bakery
+Thrift shop
+Freelancer
+Jasa kecil
 
-- Referensi UI & Konsep Desain
+🎯 Tujuan Aplikasi
+Membantu pemilik usaha untuk:
 
-gaya Clean & Minimalist UI.
-Struktur layout mengandalkan Card-based Layout dan Bottom Navigation Bar.
-Tampilan bersifat responsif (Responsive Layout).
-Pewarnaan menggunakan Soft color palette (putih, hijau, dan oranye/merah sebagai indikator status kedaluwarsa). Keputusan ini memungkinkan pengguna memproses informasi kedaluwarsa hanya dengan sekilas scanning.
-Referensi visual diambil dari Dribbble, Behance, dan Pinterest untuk kategori Pantry, Recipe, dan Grocery App UI dll.
+Mencatat transaksi bisnis
+Mengetahui kondisi keuangan bisnis
+Menentukan harga jual yang tepat
+Mengambil keputusan sederhana berdasarkan data keuangan
 
-- Fitur Utama (Fase MVP)
+Main features
 
--- Pantry Inventory: Fitur untuk menambahkan, mengedit, dan menghapus bahan makanan, serta menyimpan informasi kategori, jumlah, dan tanggal kedaluwarsanya.
--- Expiry Reminder: Fitur yang menampilkan status bahan makanan (seperti Fresh, Expiring Soon, Expired) dan memberikan peringatan melalui Local Notification saat mendekati tanggal kedaluwarsa.
--- Search & Filter: Menyediakan kemampuan pencarian bahan berdasarkan nama, serta penyaringan (filter) berdasarkan kategori maupun status kedaluwarsa.
--- Recipe Suggestion: Fitur yang mengambil rekomendasi resep dari Recipe API berdasarkan bahan yang tersedia di pantry pengguna. Fitur ini menampilkan detail gambar, daftar bahan, langkah memasak, dan estimasi waktunya.
--- Shopping List: Fitur pencatatan daftar belanja yang memungkinkan pengguna menambahkan barang, menandai yang sudah dibeli, dan menghapus daftar.
+1. Income & Expense Tracker
+Pengguna dapat mencatat seluruh transaksi bisnis.
 
+Fitur:
+
+Tambah transaksi
+Edit transaksi
+Hapus transaksi
+Kategori transaksi
+Catatan
+Tanggal transaksi
+
+Kategori contoh
+
+Income:
+Penjualan
+Jasa
+Investasi
+
+Expense:
+Bahan Baku
+Packaging
+Marketing
+Transportasi
+Utilitas
+Lainnya
+
+2. Dashboard & Financial Analytics
+Menampilkan ringkasan kondisi keuangan.
+Informasi yang ditampilkan: 
+
+Saldo Bisnis
+Total Pemasukan Bulan Ini
+Total Pengeluaran Bulan Ini
+Profit Bulan Ini
+Grafik Income vs Expense
+Grafik Pengeluaran berdasarkan Kategori
+5 Transaksi Terbaru
+
+Semua data dihitung otomatis dari transaksi yang telah dicatat.
+
+3. Pricing Assistant
+Membantu menentukan harga jual produk.
+
+Input
+Nama Produk
+Biaya Produksi
+Packaging
+Biaya Tambahan
+Target Keuntungan (%)
+
+Output
+Total Modal
+Harga Jual yang Disarankan
+Profit per Produk
+Margin Keuntungan
+
+4. Smart Financial Insights
+Memberikan rekomendasi otomatis berdasarkan data transaksi.
